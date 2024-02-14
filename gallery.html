@@ -33,7 +33,56 @@
             <!-- Add more images as needed -->
         </div>
     </section>
-        
+    <section id="video-gallery">
+        <h2>Video Gallery:</h2>
+        <div class="gallery">
+            <!-- Thumbnails for videos -->
+            <img class="video-thumb" src=".\Images\Promo\tbn (1).jpg" data-video=".\Videos\vid (1).mp4" alt="Video 1">
+            <img class="video-thumb" src=".\Images\Promo\tbn (2).jpg" data-video=".\Videos\vid (2).mp4" alt="Video 1">
+            <img class="video-thumb" src=".\Images\Promo\tbn (3).jpg" data-video=".\Videos\vid (3).mp4" alt="Video 1">
+            <img class="video-thumb" src=".\Images\Promo\img (1).jpg" data-video=".\Videos\vid (4).mp4" alt="Video 1">
+            <img class="video-thumb" src=".\Images\Promo\img (1).jpg" data-video=".\Videos\vid (5).mp4" alt="Video 1">
+            <img class="video-thumb" src=".\Images\Promo\img (1).jpg" data-video=".\Videos\vid (6).mp4" alt="Video 1">
+            <img class="video-thumb" src=".\Images\Promo\img (1).jpg" data-video=".\Videos\vid (7).mp4" alt="Video 1">
+            <!-- Add more thumbnails as needed -->
+        </div>
+    </section>
+    <section>
+        <h2>Late night idea:</h2>
+        <p>
+            On an August night, the idea struck me. 
+            I quickly grabbed my phone to capture the 
+            essence of a pure idea at the very moment 
+            it came to life.</p>
+        <video controls width="75%">
+            <source src="Videos/vid (6).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+    <section>
+        <h2>Late night idea:</h2>
+        <p>
+            On an August night, the idea struck me. 
+            I quickly grabbed my phone to capture the 
+            essence of a pure idea at the very moment 
+            it came to life.</p>
+        <video controls width="75%">
+            <source src="Videos/vid (5).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+    <section>
+        <h2>Late night idea:</h2>
+        <p>
+            On an August night, the idea struck me. 
+            I quickly grabbed my phone to capture the 
+            essence of a pure idea at the very moment 
+            it came to life.</p>
+        <video controls width="75%">
+            <source src="Videos/vid (4).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
 </body>
 
 <video loop muted autoplay id="background-video">
@@ -63,5 +112,41 @@
             });
         });
 </script>
+<script>
+    document.querySelectorAll('.video-thumb').forEach(thumb => {
+        thumb.addEventListener('click', function() {
+            const videoSrc = this.getAttribute('data-video');
+            const video = document.createElement('video');
+
+            video.src = videoSrc;
+            video.controls = true;
+            video.autoplay = true;
+            video.setAttribute('style', 'width: 100vw; height: 100vh;');
+
+            // Append and play video in fullscreen
+            document.body.appendChild(video);
+            video.requestFullscreen().catch(err => {
+                console.error('Error attempting to enable fullscreen mode:', err.message);
+                // Remove video if fullscreen can't be enabled
+                document.body.removeChild(video);
+            });
+
+            // Remove video on ending or if fullscreen is exited
+            video.onended = removeVideo;
+            document.addEventListener('fullscreenchange', () => {
+                if (!document.fullscreenElement) {
+                    removeVideo();
+                }
+            });
+
+            function removeVideo() {
+                if (document.body.contains(video)) {
+                    document.body.removeChild(video);
+                }
+            }
+        });
+    });
+</script>
+
 
 </html>
