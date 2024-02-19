@@ -1,0 +1,7 @@
+fixed file paths
+add images
+add thubnails
+commend out single videos on Gallery
+update texts
+resize images
+make images/videos smaller
