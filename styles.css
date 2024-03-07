@@ -295,7 +295,35 @@ a:hover {
     color: lightgrey; /* Lightens the hyperlink color on hover for visual feedback */
 }
 
+.intro-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start; /* Optional, aligns items at the start of the container */
+}
 
+.intro-text, .intro-image {
+    flex: 1; /* Allows each to grow */
+    padding: 15px; /* Adds some padding */
+}
+
+.intro-text {
+    max-width: 100%;
+}
+
+.intro-image img {
+    max-width: 75%; /* Reduces the image's max width to 50% of its container */
+    height: auto; /* Keeps the image's aspect ratio intact */
+    display: block; /* Ensures the image is block-level to center it if needed */
+    margin: 0 auto; /* Centers the image within its container */
+}
+
+
+@media (max-width: 768px) {
+    .intro-text, .intro-image {
+        flex-basis: 100%; /* Takes full width on smaller screens */
+        max-width: 100%; /* Ensures on smaller screens the width is 100% */
+    }
+}
 
 @keyframes fadeOut {
     from {
