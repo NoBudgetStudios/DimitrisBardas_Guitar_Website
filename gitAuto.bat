@@ -1,4 +1,4 @@
-@echo off
+@echo on
 cd %~dp0
 git add .
 FOR /F "tokens=*" %%i IN ('date /t') DO set DATEVAR=%%i
