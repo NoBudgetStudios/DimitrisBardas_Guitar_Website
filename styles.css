@@ -324,7 +324,7 @@ a:hover {
     margin: 0 auto; /* Centers the image within its container */
 }
 
-.conduct-image img {
+.contact-image img {
     max-width: 20%; /* Reduces the image's max width to 50% of its container */
     height: auto; /* Keeps the image's aspect ratio intact */
     display: block; /* Ensures the image is block-level to center it if needed */
